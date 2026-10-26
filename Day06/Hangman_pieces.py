@@ -30,21 +30,21 @@ hangman_4_life = ('''  +---+
       |
       |
 =========''')
-hangman_3_life = ('''  +---+
+hangman_3_life = (r'''  +---+
   |   |
   O   |
  /|\  |
       |
       |
 =========''')
-hangman_2_life = ('''  +---+
+hangman_2_life = (r'''  +---+
   |   |
   O   |
  /|\  |
  /    |
       |
 =========''')
-hangman_1_life = ('''  +---+
+hangman_1_life = (r'''  +---+
   |   |
   O   |
  /|\  |

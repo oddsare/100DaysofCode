@@ -7,8 +7,7 @@ print(hp.intro)
 generated_word_full = random.choice(words.words)
 generated_word = list(random.choice(words.words))
 blanks =[]
-score =6 
-print(generated_word)
+score =6
 
 for i in generated_word:
     blanks.append("_")
