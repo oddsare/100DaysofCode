@@ -32,7 +32,7 @@ def encryption (direction,message,shift_amount):
         if message[i] in alphabet:
             index_of_letter=alphabet.index(message[i])
             index_of_letter = index_of_letter +shift_amount
-            if index_of_letter >=  25 or index_of_letter <0 :
+            if index_of_letter >=  26 or index_of_letter <0 :
                 index_of_letter = index_of_letter  + positive_negitive_abc
 
             encoded_message.append(alphabet[index_of_letter])

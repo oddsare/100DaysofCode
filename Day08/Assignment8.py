@@ -36,7 +36,6 @@ def decode (message,shift_amount):
         if message[i] in alphabet:
             index_of_letter=alphabet.index(message[i])
             index_of_letter = index_of_letter - shift_amount
-            print(alphabet[index_of_letter])            
             if index_of_letter < 0:
                 index_of_letter = index_of_letter +26
             
