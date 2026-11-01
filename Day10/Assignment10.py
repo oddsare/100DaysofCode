@@ -74,7 +74,7 @@ while True:
         next_number = get_number("What's the next number?: ")
     
     total = Current_function(number,next_number)
-    print(total)
+    print(f"{number} {operator} {next_number} = {total}")
     
     starting = input(f"Type 'y' to continue calculating with {total}, or type 'n' to start a new calculation:")
     if starting == "n":
