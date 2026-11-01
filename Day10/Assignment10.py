@@ -32,6 +32,13 @@ def mult(n1,n2):
 def sub (n1,n2):
     return n1-n2
 
+def get_number(question):
+    while True:
+        try:
+            return float(input(question))
+        except ValueError:
+            print("That's not a number, try again.")
+
 total = 0
 Current_function =add
 
@@ -42,7 +49,7 @@ starting = "starting"
 while True:
     if starting == "starting" or starting == "n":
         print(art)
-        number = float(input("What's the first number?: ") )# this is never repeated  out of loop 
+        number = get_number("What's the first number?: ")# this is never repeated  out of loop
         starting = ""
     elif starting =="y":
         number = total
@@ -61,7 +68,10 @@ while True:
         Current_function = add
         
 
-    next_number =float(input("What's the next number?: ")) #this is repeated
+    next_number = get_number("What's the next number?: ") #this is repeated
+    while Current_function == divide and next_number == 0:
+        print("You can't divide by 0, try again.")
+        next_number = get_number("What's the next number?: ")
     
     total = Current_function(number,next_number)
     print(total)
