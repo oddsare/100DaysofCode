@@ -86,17 +86,17 @@ while True:
                     house_total -= 10
                     
             if house_total < 17:
-                house_number_of_cards += 0
-                house_itterating_number = 1+ house_number_of_cards
+                house_number_of_cards += 1
+                house_itterating_number = 0 + house_number_of_cards
                 draw_cards(house,1)
                 house_total += house[house_itterating_number]
                 house_aces =check_for_ll(house,house_aces)
-            elif house_total > 17:
+            elif house_total >= 17:
                 for i in range(house_aces):
                     if house_total > 21 and 11 in house:
                         house[house.index(11)] = 1
                         house_total -= 10
-                if house_total >17:
+                if house_total >= 17:
                         break
                 
                 
