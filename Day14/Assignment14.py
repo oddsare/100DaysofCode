@@ -57,7 +57,7 @@ while not is_game_over:
             person2 = random_person()
         elif person1["follower_count"] == person2["follower_count"]:
             person2 = random_person()
-        if person1 != person2:
+        elif person1 != person2:
             break
 
 
