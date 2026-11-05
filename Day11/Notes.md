@@ -317,4 +317,42 @@ Output:
 
 ---
 
+## Putting the whole game in a function
+
+**What it is:** Put everything for one game inside a function, like `def play_game():`, and call it from a loop that asks "play again?". Each call runs one whole game from the start.
+
+```python
+def play_game():
+    hand = []          # a fresh, empty hand every game
+    hand.append(10)
+    hand.append(7)
+    print(f"Your hand: {hand}, score: {sum(hand)}")
+
+while input("Do you want to play? Type 'y' or 'n': ") == "y":
+    play_game()
+
+print("Thanks for playing")
+```
+
+Output (if I type `y`, then `y`, then `n`):
+
+```
+Do you want to play? Type 'y' or 'n': y
+Your hand: [10, 7], score: 17
+Do you want to play? Type 'y' or 'n': y
+Your hand: [10, 7], score: 17
+Do you want to play? Type 'y' or 'n': n
+Thanks for playing
+```
+
+**Why you'd use it:**
+
+- **No reset code.** Variables made inside a function start fresh every time it's called, so each game automatically gets empty hands and new totals. My version needs lines 117 to 130 to reset everything by hand.
+- **Ending a game is easy.** A `return` (or just reaching the end of the function) finishes the game from anywhere, even inside loops, and drops you back at the "play again?" question. That works after a bust too, which my version doesn't do.
+- **It's easier to read.** The bottom of the file is just "keep playing while the answer is y".
+
+**Where I used it:** Not in my version. This is how another version of the Blackjack project that I compared mine against works: it has `def play_game():` with smaller functions for dealing, scoring and comparing inside it, and `while input(...) == "y": play_game()` at the bottom.
+
+---
+
 **Also used today (explained in earlier notes):** `random.choice()`, `for` + `range()`, `in` / `not in`, `+=` and `-=` ([Day 6](../Day06/Notes.md)), `while True` ([Day 10](../Day10/Notes.md)), functions with `return` ([Day 10](../Day10/Notes.md)), `if` / `elif` and `and` ([Day 3](../Day03/Notes.md)), f-strings ([Day 1](../Day01/Notes.md)), raw strings for the logo ([Day 3](../Day03/Notes.md)).
