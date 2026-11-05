@@ -38,17 +38,35 @@ score = 0 # if this gets itterating then it will reset the score  to zero
 print(art)
 ######################################
 while not is_game_over:
-    person1 =random_person()
-    person2 = random_person()
+    
+    if score == 0:
+        person1 =random_person()
+        person2 = random_person()
+        highest_count = who_is_higher()
+                
+    elif  highest_count == "A":
+        
+        person1 = person2
+        person2 = random_person()
+    elif highest_count == "B":
+        
+        person2= random_person()
+       
+    while True:
+        if person1 == person2:
+            person2 = random_person()
+        elif person1["follower_count"] == person2["follower_count"]:
+            person2 = random_person()
+        if person1 != person2:
+            break
 
 
     print(f"Compare A: {person1["name"]}, {person1["description"]}, from {person1["country"]}.")
     print(vs)
     print(f"Compare B: {person2["name"]}, {person2["description"]}, from {person2["country"]}.")
-
+    
 
     highest_count = who_is_higher()
-    print(f"This is the highest_count variable {highest_count}")
         
     who_has_more = input(f"Who has more followers? Type 'A' or 'B': ").capitalize()
 
@@ -64,3 +82,4 @@ while not is_game_over:
 
 
 
+## I need to fix 2 things 1 the looser stays and 2 if they have the same count pick a new
