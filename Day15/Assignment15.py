@@ -108,7 +108,7 @@ while not is_machine_on:
                 print(f"Here is ${left_over:.2f} in change.")
             
                 print(f"Here is your {order} ☕️. Enjoy!")
-        elif order == "espresso" and water < menu_drinks[order]["ingredients"]["water"]  and coffee < menu_drinks[order]["ingredients"]["coffee"]:
+        elif order == "espresso" and (water < menu_drinks[order]["ingredients"]["water"]  or coffee < menu_drinks[order]["ingredients"]["coffee"]):
             water,coffee = check_recources(order,water,milk,coffee,amount_paid)
         else:
             water,milk,coffee = check_recources(order,water,milk,coffee,amount_paid)
