@@ -88,22 +88,23 @@ def ordering():
 water, milk, coffee = setting_recources()
 
 while not is_machine_on:
+    amount_paid =0
     order = ordering()
 
     
     if order in menu_drinks:
-        if order != "espresso" and water > menu_drinks[order]["ingredients"]["water"] and milk > menu_drinks[order]["ingredients"]["milk"] and coffee > menu_drinks[order]["ingredients"]["coffee"]:
+        if order != "espresso" and water >= menu_drinks[order]["ingredients"]["water"] and milk >= menu_drinks[order]["ingredients"]["milk"] and coffee >= menu_drinks[order]["ingredients"]["coffee"]:
             amount_paid,left_over = what_are_you_paying_with(menu_drinks[order]["cost"])
             water,milk,coffee = check_recources(order,water,milk,coffee,amount_paid)
-            if amount_paid > menu_drinks[order]["cost"]:
+            if amount_paid >= menu_drinks[order]["cost"]:
                 print(f"Here is ${left_over:.2f} in change.")
                 print(f"Here is your {order} ☕️. Enjoy!")
             
             
-        elif order == "espresso" and water > menu_drinks[order]["ingredients"]["water"]  and coffee > menu_drinks[order]["ingredients"]["coffee"]:
+        elif order == "espresso" and water >= menu_drinks[order]["ingredients"]["water"]  and coffee >= menu_drinks[order]["ingredients"]["coffee"]:
             amount_paid,left_over = what_are_you_paying_with(menu_drinks[order]["cost"]) 
             water,coffee = check_recources(order,water,milk,coffee,amount_paid)
-            if amount_paid > menu_drinks[order]["cost"]:
+            if amount_paid >= menu_drinks[order]["cost"]:
                 print(f"Here is ${left_over:.2f} in change.")
             
                 print(f"Here is your {order} ☕️. Enjoy!")
