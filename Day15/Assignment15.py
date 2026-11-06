@@ -3,6 +3,7 @@ water = 0
 milk = 0
 coffee = 0
 amount_paid = 0
+earnings = 0
 order = ""
 this_is_nothing =None
 
@@ -11,6 +12,7 @@ menu_drinks =menu.MENU
 
 
 def what_are_you_paying_with(order):
+    global earnings
     print("Please insert coins. ")
     quarters = float(input("how many quarters?: "))
     dimes = float(input("how many dimes?: "))
@@ -18,8 +20,9 @@ def what_are_you_paying_with(order):
     pennies = float(input("how many pennies?: "))
     total = (quarters*0.25) +(dimes*0.1)+(nickles*0.05)+(pennies*0.01)
     final_total = total - order
+    earnings += order
     
-    return total,final_total
+    return total,final_total,earnings
 
 def setting_recources():
     resources = menu.resources
@@ -29,7 +32,7 @@ def setting_recources():
     
     return water, milk, coffee
   
-def making_report():
+def making_report(amount_paid):
     print(f"Water: {water}ml") 
     print(f" Milk: {milk}ml")
     print(f"Coffee: {coffee}g")
@@ -77,7 +80,7 @@ def ordering():
         exit()
         
     if order == "report":
-        making_report()
+        making_report(earnings)
     elif order not in menu_drinks:
         print("please pick a valid option")
 
@@ -94,7 +97,7 @@ while not is_machine_on:
     
     if order in menu_drinks:
         if order != "espresso" and water >= menu_drinks[order]["ingredients"]["water"] and milk >= menu_drinks[order]["ingredients"]["milk"] and coffee >= menu_drinks[order]["ingredients"]["coffee"]:
-            amount_paid,left_over = what_are_you_paying_with(menu_drinks[order]["cost"])
+            amount_paid,left_over, earnings = what_are_you_paying_with(menu_drinks[order]["cost"])
             water,milk,coffee = check_recources(order,water,milk,coffee,amount_paid)
             if amount_paid >= menu_drinks[order]["cost"]:
                 print(f"Here is ${left_over:.2f} in change.")
@@ -102,7 +105,7 @@ while not is_machine_on:
             
             
         elif order == "espresso" and water >= menu_drinks[order]["ingredients"]["water"]  and coffee >= menu_drinks[order]["ingredients"]["coffee"]:
-            amount_paid,left_over = what_are_you_paying_with(menu_drinks[order]["cost"]) 
+            amount_paid,left_over,earnings = what_are_you_paying_with(menu_drinks[order]["cost"]) 
             water,coffee = check_recources(order,water,milk,coffee,amount_paid)
             if amount_paid >= menu_drinks[order]["cost"]:
                 print(f"Here is ${left_over:.2f} in change.")
