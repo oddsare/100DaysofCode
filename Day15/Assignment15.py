@@ -2,7 +2,7 @@ import Menu_coffee_shop as menu # type: ignore
 water = 0
 milk = 0
 coffee = 0
-amount_paid = 5
+amount_paid = 0
 order = ""
 this_is_nothing =None
 
