@@ -20,7 +20,7 @@ def what_are_you_paying_with(order):
     pennies = float(input("how many pennies?: "))
     total = (quarters*0.25) +(dimes*0.1)+(nickles*0.05)+(pennies*0.01)
     final_total = total - order
-    if total > order:
+    if total >= order:
         earnings += order
     
     return total,final_total,earnings
