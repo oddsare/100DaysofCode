@@ -3,8 +3,6 @@ import random
 
 colors =["Red","Blue", "Green", "Yellow", "Purple","Orange"]
 
-turtle1 = Turtle()
-
 is_race_on = False
 all_turtles = []
 
@@ -22,16 +20,12 @@ for i in range(0,6):
     n -= 50    
     all_turtles.append(turtle1)
     
-    
-
-
-
 screen = Screen()
 screen.setup(500,400)
 #width  is 500 
 # height is 400
 
-user_bet = screen.textinput("Make a Bet","Who do you bet on? Red/Blue/Green/Yellow or Purple").lower()
+user_bet = screen.textinput("Make a Bet","Who do you bet on? Red/Blue/Green/Yellow/Orange or Purple").lower()
 
 
 if user_bet:
@@ -48,7 +42,5 @@ while is_race_on:
             is_race_on = False
         ran_distance = random.randint(0,10)
         turtle.forward(ran_distance)
-
-            
 
 screen.exitonclick()
