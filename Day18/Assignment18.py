@@ -26,10 +26,10 @@ for color in colors:
     new_color = (r,g,b)
     rgb_colors.append(new_color)
 
-lat = 0
-long = 0
+lat = -225
+long = -225
 for i in range(10):
-    lat= 0
+    lat= -225
     for j in range(10):
         movement(lat,long,rgb_colors)
         lat += 50
