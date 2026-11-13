@@ -6,6 +6,7 @@ LEFT = 180
 RIGHT = 0
 N= 3
 
+
 class Snake:
 
     def __init__(self):
@@ -15,10 +16,10 @@ class Snake:
         
 
     def make_square(self,n):
-        self.spacing = 0
+   
         #this range will needed to be added
         for i in range(0,n):
-            self.add_snanke(self.spacing)
+            self.add_snanke(-20*i,0)
             
 
     def snake_move(self):
@@ -45,12 +46,12 @@ class Snake:
         if self.head.heading() != LEFT:
             self.head.setheading(RIGHT)
             
-    def extend_snake():
-        pass
-    def add_snanke(self,spacing):
+    def extend_snake(self):
+        tail =self.snake[-1]
+        self.add_snanke(tail.xcor(),tail.ycor())
+    def add_snanke(self,x,y):
         self.square_shape = Turtle("square")
         self.square_shape.penup()
         self.square_shape.color("White")
-        self.square_shape.setpos(spacing,0)
-        spacing -= 21
+        self.square_shape.setpos(x,y)
         self.snake.append(self.square_shape)

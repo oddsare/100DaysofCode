@@ -30,8 +30,9 @@ while game_is_on:
     snake.snake_move()
     #collision_with_food     
     if snake.head.distance(food) < 15:
-        food.refresh()
-        snake.make_square(1)
+        food.refresh() 
+        snake.extend_snake()
+        
      
         scorebard.increase_score()
     if snake.head.xcor() > 290 or snake.head.xcor() < -290 or snake.head.ycor() < -290 or snake.head.ycor() > 290:
