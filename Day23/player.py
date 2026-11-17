@@ -5,7 +5,7 @@ STARTING_POSITION = (0, -280)
 MOVE_DISTANCE = 10
 FINISH_LINE_Y = 280
 
-
+scoreboard = Scoreboard()
 class Player(Turtle):
    
     def __init__(self):
@@ -15,7 +15,6 @@ class Player(Turtle):
       self.shape("turtle")
       self.setheading(90)
       self.level = 1
-      self.scoreboard = Scoreboard()
       
       
       
@@ -27,12 +26,18 @@ class Player(Turtle):
 
 
     def player_check_distance(self,player):
-        self.scoreboard.level(self.level)
+        
         if player.ycor() > FINISH_LINE_Y:
             self.goto(STARTING_POSITION)
             self.level += 1
-            self.scoreboard.clear()
-            self.scoreboard.level(self.level)
+            scoreboard.clear()
+            scoreboard.level(self.level)
+            return True
+        else:
+            scoreboard.clear()
+            scoreboard.level(self.level)
+            return False
+            
             
             
             

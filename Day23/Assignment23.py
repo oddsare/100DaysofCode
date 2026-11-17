@@ -6,7 +6,7 @@ from scoreboard import Scoreboard
 
 player = Player()
 scoreboard = Scoreboard()
-
+speed = 10
 screen = Screen()
 screen.setup(width=600, height=600)
 screen.tracer(0)
@@ -29,7 +29,11 @@ while game_is_on:
     time.sleep(0.1)
     screen.update()
     car_manager.car()
-    car_manager.move_forward(player)
+    if player.player_check_distance(player) == True:
+        car_manager.move_forward(speed)
+        speed += 10
+    else:
+        car_manager.move_forward(speed)
     
     for a_car in (car_manager.group_cars):
                 

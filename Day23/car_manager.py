@@ -10,8 +10,9 @@ MOVE_INCREMENT = 10
 
 class CarManager():
     def __init__(self):
-        
+        self.speed = STARTING_MOVE_DISTANCE
         self.group_cars = []
+        
         
         
     def car(self):
@@ -28,14 +29,13 @@ class CarManager():
             
             self.group_cars.append(the_car)
         
-    def move_forward(self,the_player):
-        speed = STARTING_MOVE_DISTANCE
-        if the_player.level > 1:
-            speed += MOVE_INCREMENT
+    def move_forward(self,speed):
+        
         
         for a_car in (self.group_cars):
             
             a_car.forward(speed)
+
 
 
 
