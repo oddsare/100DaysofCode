@@ -25,7 +25,6 @@ while game_is_on:
 
        
         
-    player.player_check_distance(player)
     time.sleep(0.1)
     screen.update()
     car_manager.car()
