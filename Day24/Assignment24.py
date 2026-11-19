@@ -44,6 +44,7 @@ while game_is_on:
         if snake.head.distance(part_of_snake) < 10:
 
             scorebard.reset()
+            snake.reset()
             
 
 screen.exitonclick()
