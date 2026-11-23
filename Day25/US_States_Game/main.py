@@ -35,7 +35,7 @@ state_answer = pandas.read_csv("50_states.csv")
 
 while game_is_on:
 
-    answer_state = screen.textinput("Guess the State","Whats another state's name? ").title()
+    answer_state = screen.textinput(f"{len(guessed_states)}/50 States Correct","Whats another state's name? ").title()
     
     
     if answer_state == "Exit":
