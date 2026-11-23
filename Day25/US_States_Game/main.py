@@ -27,7 +27,7 @@ guessed_states = []
 state_answer = pandas.read_csv("50_states.csv")
 
 
-to_csv = pandas.DataFrame(state_answer.items())
+#to_csv = pandas.DataFrame(state_answer["state"].items())
 
 #to_csv.to_csv("All States")
 
@@ -39,12 +39,14 @@ while game_is_on:
     
     
     if answer_state == "Exit":
-        to_csv.to_csv("Missing States")
+        missing = state_answer[~state_answer.state.isin(guessed_states)]
+        missing_questions = pandas.DataFrame(missing)
+        missing_questions.to_csv("Missing_States")
         break
 
     for state in state_answer.state:
         if state == answer_state and state not in guessed_states:
-            to_csv.drop(index= to_csv[to_csv['State']== 'Ohio'].index)
+            
             
             
             guessed_states.append(state) 
